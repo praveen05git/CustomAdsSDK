@@ -18,10 +18,11 @@ public class adFunctions {
     static String adUrl;
 
     public static String getLink()
-    {
+    {/*
         firebaseDatabase=FirebaseDatabase.getInstance();
 
         databaseReference = firebaseDatabase.getReference("adlist");
+        */
 
         /*
         databaseReference.addValueEventListener(new ValueEventListener() {
