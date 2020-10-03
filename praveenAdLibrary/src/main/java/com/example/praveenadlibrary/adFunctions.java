@@ -23,6 +23,7 @@ public class adFunctions {
 
         databaseReference = firebaseDatabase.getReference("adlist");
 
+        /*
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -40,6 +41,7 @@ public class adFunctions {
         });
 
         adUrl=adLists.get(0).getUrl();
+         */
 
         return "hi";
     }
