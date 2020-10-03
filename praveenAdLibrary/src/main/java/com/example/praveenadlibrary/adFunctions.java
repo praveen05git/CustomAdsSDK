@@ -57,7 +57,7 @@ public class adFunctions {
         adUrl=adLists.get(0).getUrl();
 
 
-        return "hi";
+        return adUrl;
     }
 
 }
