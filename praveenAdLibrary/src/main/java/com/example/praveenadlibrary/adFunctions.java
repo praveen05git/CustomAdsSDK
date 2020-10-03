@@ -1,5 +1,8 @@
 package com.example.praveenadlibrary;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 
 import com.google.firebase.database.DataSnapshot;
@@ -17,21 +20,24 @@ public class adFunctions {
     static DatabaseReference databaseReference;
     static String adUrl;
 
-    public static String getLink()
-    {/*
+    public static String getLink(final Context context)
+    {
         firebaseDatabase=FirebaseDatabase.getInstance();
 
         databaseReference = firebaseDatabase.getReference("adlist");
-        */
 
-        /*
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot postSnapshot: snapshot.getChildren())
                 {
+                    Toast.makeText(context,"Reference",Toast.LENGTH_LONG).show();
+                    /*
                     adProperties ads= postSnapshot.getValue(adProperties.class);
                     adLists.add(ads);
+
+                     */
                 }
             }
 
@@ -42,7 +48,7 @@ public class adFunctions {
         });
 
         adUrl=adLists.get(0).getUrl();
-         */
+
 
         return "hi";
     }
