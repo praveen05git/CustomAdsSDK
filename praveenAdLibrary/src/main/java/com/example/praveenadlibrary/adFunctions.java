@@ -12,12 +12,12 @@ import java.util.List;
 
 public class adFunctions {
 
-    List<adProperties> adLists;
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
-    String adUrl;
+    static List<adProperties> adLists;
+    static FirebaseDatabase firebaseDatabase;
+    static DatabaseReference databaseReference;
+    static String adUrl;
 
-    public String getLink()
+    public static String getLink()
     {
         firebaseDatabase=FirebaseDatabase.getInstance();
 
