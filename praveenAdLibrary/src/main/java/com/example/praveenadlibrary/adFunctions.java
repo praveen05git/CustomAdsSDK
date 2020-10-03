@@ -20,8 +20,9 @@ public class adFunctions {
     static FirebaseDatabase firebaseDatabase;
     static DatabaseReference databaseReference;
     static String adUrl;
+    static int count;
 
-    public static String getLink(final Context context)
+    public static int getLink(final Context context)
     {
         adLists=new ArrayList<>();
 
@@ -49,10 +50,10 @@ public class adFunctions {
         });
 
 
-        adUrl=adLists.get(0).getUrl();
+        int count=adLists.size();
 
 
-        return adUrl;
+        return count;
     }
 
 }
