@@ -1,0 +1,3 @@
+include ':praveenAdLibrary'
+include ':app'
+rootProject.name = "AdsLibrary"
