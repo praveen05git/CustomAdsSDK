@@ -35,12 +35,10 @@ public class adFunctions {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot postSnapshot: snapshot.getChildren())
                 {
-                    Toast.makeText(context,"Reference",Toast.LENGTH_LONG).show();
-                    /*
+
                     adProperties ads= postSnapshot.getValue(adProperties.class);
                     adLists.add(ads);
 
-                     */
                 }
             }
 
@@ -50,10 +48,7 @@ public class adFunctions {
             }
         });
 
-        adProperties props = new adProperties();
-        props.name="iam";
-        props.url="batman";
-        adLists.add(props);
+
         adUrl=adLists.get(0).getUrl();
 
 
