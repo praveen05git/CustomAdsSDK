@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
 import com.google.firebase.database.DataSnapshot;
@@ -27,6 +28,7 @@ public class adFunctions extends AppCompatActivity {
 
     public static int getLink(final Context context)
     {
+
         adLists=new ArrayList<>();
 
         firebaseDatabase=FirebaseDatabase.getInstance();
@@ -59,4 +61,11 @@ public class adFunctions extends AppCompatActivity {
         return count;
     }
 
+    public void showAdFrag(int ViewId)
+    {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(ViewId,new AdFragment())
+                .commit();
+    }
 }
