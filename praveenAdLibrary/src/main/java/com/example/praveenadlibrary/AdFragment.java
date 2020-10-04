@@ -84,7 +84,7 @@ public class AdFragment extends Fragment {
 
         firebaseDatabase= FirebaseDatabase.getInstance();
 
-        databaseReference = firebaseDatabase.getReference("adlist");
+        databaseReference = firebaseDatabase.getReference("bannerads");
 
 
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -97,6 +97,8 @@ public class AdFragment extends Fragment {
                     adLists.add(ads);
 
                 }
+                String text="Count="+adLists.size();
+                adName.setText(text);
             }
 
             @Override
@@ -104,11 +106,6 @@ public class AdFragment extends Fragment {
                 Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
-
-        String text="Count="+adLists.size();
-        adName.setText(text);
-
-
 
 
         return root;
