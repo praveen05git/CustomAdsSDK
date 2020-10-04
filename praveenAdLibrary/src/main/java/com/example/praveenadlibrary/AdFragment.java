@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,6 +38,7 @@ public class AdFragment extends Fragment {
     static List<adProperties> adLists;
     static FirebaseDatabase firebaseDatabase;
     static DatabaseReference databaseReference;
+    static TextView adName;
 
     public AdFragment() {
         // Required empty public constructor
@@ -75,6 +77,8 @@ public class AdFragment extends Fragment {
         // Inflate the layout for this fragment
         View root=inflater.inflate(R.layout.ad_fragment, container, false);
 
+        adName=root.findViewById(R.id.adText);
+
         adLists=new ArrayList<>();
 
         firebaseDatabase= FirebaseDatabase.getInstance();
@@ -100,6 +104,8 @@ public class AdFragment extends Fragment {
             }
         });
 
+        String text="Count="+adLists.size();
+        adName.setText(text);
 
 
 
