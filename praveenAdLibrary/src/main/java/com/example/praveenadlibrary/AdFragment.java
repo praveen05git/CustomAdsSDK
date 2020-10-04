@@ -110,7 +110,7 @@ public class AdFragment extends Fragment {
             }
         });
 
-        //Picasso.get().load(adImageUrl).into(adImage);
+        Picasso.get().load(adImageUrl).into(adImage);
 
         return root;
     }
