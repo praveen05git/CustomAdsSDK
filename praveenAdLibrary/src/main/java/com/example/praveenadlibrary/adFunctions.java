@@ -62,6 +62,7 @@ public class adFunctions extends AppCompatActivity {
         return count;
     }
 
+    /*
     public static void showAdFrag(FragmentActivity fragmentActivity , int ViewId)
     {
         fragmentActivity.getSupportFragmentManager()
@@ -69,4 +70,6 @@ public class adFunctions extends AppCompatActivity {
                 .replace(ViewId, new AdFragment())
                 .commit();
     }
+
+     */
 }
