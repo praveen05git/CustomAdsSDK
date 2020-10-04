@@ -1,9 +1,12 @@
 package com.example.praveenadlibrary;
 
 import android.content.Context;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -14,7 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class adFunctions {
+public class adFunctions extends AppCompatActivity {
 
     static List<adProperties> adLists;
     static FirebaseDatabase firebaseDatabase;
