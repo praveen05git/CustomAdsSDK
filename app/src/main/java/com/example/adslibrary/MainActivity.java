@@ -1,6 +1,7 @@
 package com.example.adslibrary;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,6 +19,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,9 +52,12 @@ public class MainActivity extends AppCompatActivity {
                 testLists.add(ads);
 
             }
-            imageUrl=(testLists.get(0).Url).toString();
-            Picasso.get().load(imageUrl).into(NewimageView);
-            Toast.makeText(getApplicationContext(),imageUrl, Toast.LENGTH_LONG).show();
+
+            Random random = new Random();
+            int r=random.nextInt(3);
+                        imageUrl = (testLists.get(r).Url).toString();
+                        Picasso.get().load(imageUrl).into(NewimageView);
+
         }
 
         @Override

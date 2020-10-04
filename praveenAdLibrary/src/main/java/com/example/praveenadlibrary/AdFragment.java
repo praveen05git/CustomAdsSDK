@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -100,7 +102,10 @@ public class AdFragment extends Fragment {
                     adLists.add(ads);
 
                 }
-                adImageUrl=adLists.get(0).Url;
+
+                Random random = new Random();
+                int r=random.nextInt(3);
+                adImageUrl=adLists.get(r).Url;
                 Picasso.get().load(adImageUrl).into(adImage);
 
             }
