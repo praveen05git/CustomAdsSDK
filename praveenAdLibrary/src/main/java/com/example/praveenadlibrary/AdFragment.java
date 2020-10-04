@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +41,8 @@ public class AdFragment extends Fragment {
     static List<adProperties> adLists;
     static FirebaseDatabase firebaseDatabase;
     static DatabaseReference databaseReference;
-    static TextView adName;
+    static ImageView adImage;
+    static String adImageUrl;
 
     public AdFragment() {
         // Required empty public constructor
@@ -78,7 +81,7 @@ public class AdFragment extends Fragment {
         // Inflate the layout for this fragment
         View root=inflater.inflate(R.layout.ad_fragment, container, false);
 
-        adName=root.findViewById(R.id.adText);
+        adImage=root.findViewById(R.id.adImage);
 
         adLists=new ArrayList<>();
 
@@ -97,8 +100,8 @@ public class AdFragment extends Fragment {
                     adLists.add(ads);
 
                 }
-                String text="Count="+adLists.size();
-                adName.setText(text);
+                adImageUrl=adLists.get(0).Url;
+
             }
 
             @Override
@@ -107,6 +110,7 @@ public class AdFragment extends Fragment {
             }
         });
 
+        Picasso.get().load(adImageUrl).into(adImage);
 
         return root;
     }
