@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -83,7 +84,7 @@ public class AdFragment extends Fragment {
 
         firebaseDatabase= FirebaseDatabase.getInstance();
 
-        databaseReference = firebaseDatabase.getReference("adlist");
+        databaseReference = firebaseDatabase.getReference("photographer1");
 
 
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -100,7 +101,7 @@ public class AdFragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
 
