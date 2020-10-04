@@ -101,6 +101,7 @@ public class AdFragment extends Fragment {
 
                 }
                 adImageUrl=adLists.get(0).Url;
+                Picasso.get().load(adImageUrl).into(adImage);
 
             }
 
@@ -110,7 +111,6 @@ public class AdFragment extends Fragment {
             }
         });
 
-        Picasso.get().load(adImageUrl).into(adImage);
 
         return root;
     }

@@ -2,6 +2,7 @@ package com.example.adslibrary;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,6 +14,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,17 +24,18 @@ public class MainActivity extends AppCompatActivity {
      List<adProperties> testLists;
      FirebaseDatabase newfirebaseDatabase;
      DatabaseReference newdatabaseReference;
-     TextView adtest;
+     ImageView NewimageView;
+     String imageUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        adtest=findViewById(R.id.test);
         testLists=new ArrayList<>();
+        NewimageView=findViewById(R.id.imageView);
 
-        try{
+
             newfirebaseDatabase= FirebaseDatabase.getInstance();
 
             newdatabaseReference = newfirebaseDatabase.getReference("bannerads");
@@ -47,8 +50,9 @@ public class MainActivity extends AppCompatActivity {
                 testLists.add(ads);
 
             }
-            String newString=testLists.get(0).Name;
-            adtest.setText(newString);
+            imageUrl=(testLists.get(0).Url).toString();
+            Picasso.get().load(imageUrl).into(NewimageView);
+            Toast.makeText(getApplicationContext(),imageUrl, Toast.LENGTH_LONG).show();
         }
 
         @Override
@@ -56,12 +60,9 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
         }
     });
-}
-catch (Exception e)
-{
-    Log.i("errormsg",e.getMessage());
 
-}
+
+
 
 
 
