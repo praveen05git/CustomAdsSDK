@@ -21,6 +21,7 @@ import java.util.List;
 
 public class adFunctions extends AppCompatActivity {
 
+    /*
     static List<adProperties> adLists;
     static FirebaseDatabase firebaseDatabase;
     static DatabaseReference databaseReference;
