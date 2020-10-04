@@ -2,6 +2,7 @@ package com.example.praveenadlibrary;
 
 import android.content.Context;
 import android.view.View;
+import android.view.contentcapture.ContentCaptureCondition;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -61,11 +62,11 @@ public class adFunctions extends AppCompatActivity {
         return count;
     }
 
-    public void showAdFrag(int ViewId)
+    public static void showAdFrag(FragmentActivity fragmentActivity , int ViewId)
     {
-        getSupportFragmentManager()
+        fragmentActivity.getSupportFragmentManager()
                 .beginTransaction()
-                .replace(ViewId,new AdFragment())
+                .replace(ViewId, new AdFragment())
                 .commit();
     }
 }
