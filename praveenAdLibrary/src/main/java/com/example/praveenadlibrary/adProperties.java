@@ -2,30 +2,30 @@ package com.example.praveenadlibrary;
 
 public class adProperties {
 
-    String name;
-    String url;
+    String Name;
+    String Url;
 
     public String getName() {
-        return name;
+        return Name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        Name = name;
     }
 
     public String getUrl() {
-        return url;
+        return Url;
     }
 
     public void setUrl(String url) {
-        this.url = url;
+        Url = url;
     }
 
     public adProperties() {
     }
 
     public adProperties(String name, String url) {
-        this.name = name;
-        this.url = url;
+        Name = name;
+        Url = url;
     }
 }

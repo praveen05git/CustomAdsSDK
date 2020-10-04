@@ -84,7 +84,7 @@ public class AdFragment extends Fragment {
 
         firebaseDatabase= FirebaseDatabase.getInstance();
 
-        databaseReference = firebaseDatabase.getReference("photographer1");
+        databaseReference = firebaseDatabase.getReference("adlist");
 
 
         databaseReference.addValueEventListener(new ValueEventListener() {
