@@ -1,21 +1,15 @@
 package com.example.praveenadlibrary;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.Uri;
+
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -34,7 +28,7 @@ import java.util.Random;
  * Use the {@link AdFragment# newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AdFragment extends Fragment{
+public class AdFragment extends Fragment {
 
     static List<adProperties> adLists;
     static FirebaseDatabase firebaseDatabase;
@@ -50,13 +44,13 @@ public class AdFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View root=inflater.inflate(R.layout.ad_fragment, container, false);
+        View root = inflater.inflate(R.layout.ad_fragment, container, false);
 
-        adImage=root.findViewById(R.id.adImage);
+        adImage = root.findViewById(R.id.adImage);
 
-        adLists=new ArrayList<>();
+        adLists = new ArrayList<>();
 
-        firebaseDatabase= FirebaseDatabase.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
 
         databaseReference = firebaseDatabase.getReference("bannerads");
 
@@ -64,17 +58,16 @@ public class AdFragment extends Fragment{
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot postSnapshot: snapshot.getChildren())
-                {
+                for (DataSnapshot postSnapshot : snapshot.getChildren()) {
 
-                    adProperties ads= postSnapshot.getValue(adProperties.class);
+                    adProperties ads = postSnapshot.getValue(adProperties.class);
                     adLists.add(ads);
 
                 }
 
                 Random random = new Random();
-                int r=random.nextInt(3);
-                adImageUrl=adLists.get(r).Url;
+                int r = random.nextInt(3);
+                adImageUrl = adLists.get(r).Url;
                 Picasso.get().load(adImageUrl).into(adImage);
 
             }
