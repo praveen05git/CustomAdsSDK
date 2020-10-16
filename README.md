@@ -1,13 +1,13 @@
 # NewAdsLibrary
 A simple SDK for Android to publish custom ADs
 
-Adding SDK to the project:
-* Follow the instructions to add the latest version of SDK: https://jitpack.io/#praveen05git/CustomAdsSDK/0.75
+<b>Adding SDK to the project:</b>
+* Follow the instructions to add the latest version of the SDK: https://jitpack.io/#praveen05git/CustomAdsSDK/0.75
 
-Other versions:
-* https://jitpack.io/#praveen05git/CustomAdsSDK
+<b>Other versions:</b>
+* For previous versions of the SDK: https://jitpack.io/#praveen05git/CustomAdsSDK
 
-Useage:
+<b>Useage:</b>
 * Add the SDK to gradle
 * Create an Activity
 * Place the NewAdsLibrary Fragment inside the Activity
