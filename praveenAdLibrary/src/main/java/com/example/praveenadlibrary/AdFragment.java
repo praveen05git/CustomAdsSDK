@@ -2,15 +2,14 @@ package com.example.praveenadlibrary;
 
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,14 +22,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AdFragment# newInstance} factory method to
- * create an instance of this fragment.
- */
 public class AdFragment extends Fragment {
 
-    static List<adProperties> adLists;
+    static List<AdProperties> adLists;
     static FirebaseDatabase firebaseDatabase;
     static DatabaseReference databaseReference;
     ImageView adImage;
@@ -47,29 +41,22 @@ public class AdFragment extends Fragment {
         View root = inflater.inflate(R.layout.ad_fragment, container, false);
 
         adImage = root.findViewById(R.id.adImage);
-
         adLists = new ArrayList<>();
-
         firebaseDatabase = FirebaseDatabase.getInstance();
-
         databaseReference = firebaseDatabase.getReference("bannerads");
-
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-
-                    adProperties ads = postSnapshot.getValue(adProperties.class);
+                    AdProperties ads = postSnapshot.getValue(AdProperties.class);
                     adLists.add(ads);
-
                 }
 
                 Random random = new Random();
                 int r = random.nextInt(3);
-                adImageUrl = adLists.get(r).Url;
+                adImageUrl = adLists.get(r).url;
                 Picasso.get().load(adImageUrl).into(adImage);
-
             }
 
             @Override
