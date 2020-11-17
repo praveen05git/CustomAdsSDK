@@ -1,4 +1,4 @@
-# NewAdsLibrary
+# Custom Ads Library
 A simple SDK for Android to publish custom ADs
 
 <b>Adding SDK to the project:</b>
